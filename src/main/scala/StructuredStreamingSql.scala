@@ -1,9 +1,8 @@
 //import org.apache.spark.{SparkConf, SparkContext}
 //import org.apache.spark.sql.functions._
-import org.apache.spark.sql.SparkSession
-import org.apache.spark.sql.{ForeachWriter, Row}
+import org.apache.spark.sql.{ForeachWriter, Row, SparkSession}
 
-object StreamingSql {
+object StructuredStreamingSql {
 
   def main(args: Array[String]) {
 
@@ -13,9 +12,6 @@ object StreamingSql {
       .appName("StreamingSql")
       .config("spark.master", "local")
       .getOrCreate()
-
-
-    import spark.implicits._
 
     // Create DataFrame representing the stream of input lines from connection to host:port
     val lines = spark.readStream
